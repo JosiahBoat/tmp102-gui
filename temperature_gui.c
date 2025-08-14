@@ -10,7 +10,7 @@
 #define FIFO_PATH "/tmp/temp_pipe"
 #define MAX_READINGS 15
 
-// ANSI color codes
+
 #define CLEAR_SCREEN "\033[2J\033[H"
 #define RED "\033[31m"
 #define GREEN "\033[32m"
@@ -42,7 +42,7 @@ float extract_temperature(const char* line) {
     if (!pos) return -999.0;
     
     pos++; // Move past ':'
-    while (*pos == ' ' || *pos == '"') pos++; // Skip spaces and quotes
+    while (*pos == ' ' || *pos == '"') pos++; 
     
     return atof(pos);
 }
