@@ -32,12 +32,12 @@ static int reading_count = 0;
 static float current_temp = 0.0;
 static char status_msg[128] = "Starting...";
 
-// Simple temperature parser - looks for "temp_c":XX.XX pattern
+Simple temperature parser 
 float extract_temperature(const char* line) {
     char* pos = strstr(line, "temp_c");
     if (!pos) return -999.0;
     
-    // Look for the number after the colon
+    
     pos = strchr(pos, ':');
     if (!pos) return -999.0;
     
@@ -63,7 +63,7 @@ void add_temperature(float temp) {
         reading_count = MAX_READINGS - 1;
     }
     
-    // Add new reading
+    
     readings[reading_count].temperature = temp;
     strftime(readings[reading_count].time_str, 16, "%H:%M:%S", tm_info);
     reading_count++;
